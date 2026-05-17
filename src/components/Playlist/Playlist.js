@@ -8,7 +8,7 @@ function Playlist() {
             <h2>Playlist</h2>
             <input placeholder="Playlist Name" />
 
-            <Tracklist />
+            <Tracklist tracks={[]} />
 
             <button>SAVE TO SPOTIFY</button>
         </div>

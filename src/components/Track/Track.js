@@ -1,11 +1,11 @@
 import './Track.css';
 
-function Track() {
+function Track(props) {
     return (
     <div>
-        <h3>Track Name</h3>
+        <h3>{props.track.name}</h3>
 
-        <p>Artist | Album</p>
+        <p>{props.track.artist} | {props.track.album}</p>
 
         <button>+</button>
     </div>
