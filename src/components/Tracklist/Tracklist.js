@@ -8,7 +8,9 @@ function Tracklist(props) {
             {props.tracks.map(track => {
                 return <Track 
                 key={track.id}
-                track={track} />;
+                track={track} 
+                onAdd={props.onAdd}
+                />;
             })}
         </div>
     );

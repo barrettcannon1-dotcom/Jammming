@@ -6,8 +6,9 @@ function Track(props) {
         <h3>{props.track.name}</h3>
 
         <p>{props.track.artist} | {props.track.album}</p>
-
-        <button>+</button>
+        {props.onAdd && (
+        <button onClick={() => props.onAdd(props.track)}>+</button>
+        )}
     </div>
     );
 }

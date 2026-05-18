@@ -6,7 +6,7 @@ function SearchResults(props) {
     return (
         <div>
             <h2>Results</h2>
-            <Tracklist tracks={props.tracks} />
+            <Tracklist tracks={props.tracks} onAdd={props.onAdd}/>
         </div>
     )
 }
