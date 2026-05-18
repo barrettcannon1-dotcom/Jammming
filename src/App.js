@@ -4,17 +4,11 @@ import { useState } from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 import Playlist from './components/Playlist/Playlist';
+import Spotify from './util/Spotify';
 
 function App() {
-    const searchResults = [
-      {
-          id: 1,
-          name: 'Wrong Way',
-          artist: 'Sublime',
-          album: '40oz. to Freedom',
-          uri: 'spotify:track:123'
-      }
-    ];
+    const [searchResults, setSearchResults] = useState([])
+
     const [playlistName, setPlaylistName] = useState('My Playlist');
     const updatePlaylistName = (newName) => {
       setPlaylistName(newName);
@@ -33,6 +27,10 @@ function App() {
       setPlaylistName('New Playlist');
       setPlaylistTracks([]);
     };
+
+    const search = (term) => {
+      Spotify.search(term).then(setSearchResults);
+    }
 
     const [playlistTracks, setPlaylistTracks] = useState([
       {
@@ -58,8 +56,8 @@ function App() {
   return (
     <div>
       <h1>Jammming</h1>
-
-      <SearchBar />
+      <button onClick={() => Spotify.getAccessToken()}>Login to Spotify</button>
+      <SearchBar onSearch={search} />
 
       <SearchResults tracks={searchResults} onAdd={addTrack} />
 
