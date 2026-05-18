@@ -31,7 +31,7 @@ function App() {
 
       <SearchResults tracks={searchResults}/>
 
-      <Playlist />
+      <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
     </div>
   );
 }
