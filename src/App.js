@@ -14,8 +14,10 @@ function App() {
           album: '40oz. to Freedom'
       }
     ];
-    const playlistName = 'My Playlist';
-
+    const [playlistName, setPlaylistName] = useState('My Playlist');
+    const updatePlaylistName = (newName) => {
+      setPlaylistName(newName);
+    }
     const [playlistTracks, setPlaylistTracks] = useState([
       {
         id: 2,
@@ -29,6 +31,13 @@ function App() {
         return [...prevTracks, track];
       });
     };
+    const removeTrack = (trackToRemove) => {
+      setPlaylistTracks((prevTracks) => {
+        return prevTracks.filter(track => {
+          return track.id !== trackToRemove.id;
+        });
+      });
+    };
   return (
     <div>
       <h1>Jammming</h1>
@@ -37,7 +46,7 @@ function App() {
 
       <SearchResults tracks={searchResults} onAdd={addTrack} />
 
-      <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
+      <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} onNameChange={updatePlaylistName}/>
     </div>
   );
 }

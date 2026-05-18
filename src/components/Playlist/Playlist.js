@@ -6,9 +6,9 @@ function Playlist(props) {
     return (
         <div>
             <h2>Playlist</h2>
-            <input placeholder="Playlist Name" />
+            <input placeholder="Playlist Name" value={props.playlistName} onChange={(event) => props.onNameChange(event.target.value)} />
 
-            <Tracklist tracks={props.playlistTracks} />
+            <Tracklist tracks={props.playlistTracks} onRemove={props.onRemove}/>
 
             <button>SAVE TO SPOTIFY</button>
         </div>

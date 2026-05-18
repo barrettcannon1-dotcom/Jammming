@@ -9,6 +9,9 @@ function Track(props) {
         {props.onAdd && (
         <button onClick={() => props.onAdd(props.track)}>+</button>
         )}
+        {props.onRemove && (
+            <button onClick={() => props.onRemove(props.track)}>-</button>
+        )}
     </div>
     );
 }
