@@ -11,19 +11,36 @@ function App() {
           id: 1,
           name: 'Wrong Way',
           artist: 'Sublime',
-          album: '40oz. to Freedom'
+          album: '40oz. to Freedom',
+          uri: 'spotify:track:123'
       }
     ];
     const [playlistName, setPlaylistName] = useState('My Playlist');
     const updatePlaylistName = (newName) => {
       setPlaylistName(newName);
     }
+    const savePlaylist = () => {
+
+      // Create array of track URIs
+      const trackURIs = playlistTracks.map(track => track.uri);
+
+      console.log(trackURIs);
+
+      // Mock save
+      console.log(`Saving playlist: ${playlistName}`);
+
+      // Reset playlist after save
+      setPlaylistName('New Playlist');
+      setPlaylistTracks([]);
+    };
+
     const [playlistTracks, setPlaylistTracks] = useState([
       {
         id: 2,
         name: 'What I Got',
         artist: 'Sublime',
-        album: '40oz. to Freedom'
+        album: '40oz. to Freedom',
+        uri: 'spotify:track:456'
       }
     ]);
     const addTrack = (track) => {
@@ -46,7 +63,7 @@ function App() {
 
       <SearchResults tracks={searchResults} onAdd={addTrack} />
 
-      <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} onNameChange={updatePlaylistName}/>
+      <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} onNameChange={updatePlaylistName} onSave={savePlaylist} />
     </div>
   );
 }
