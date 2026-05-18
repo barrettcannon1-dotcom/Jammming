@@ -5,12 +5,22 @@ import SearchResults from './components/SearchResults/SearchResults';
 import Playlist from './components/Playlist/Playlist';
 
 function App() {
-    const tracks = [
+    const searchResults = [
       {
           id: 1,
           name: 'Wrong Way',
           artist: 'Sublime',
           album: '40oz. to Freedom'
+      }
+    ];
+    const playlistName = 'My Playlist';
+
+    const playlistTracks = [
+      {
+        id: 2,
+        name: 'What I Got',
+        artist: 'Sublime',
+        album: '40oz. to Freedom'
       }
     ];
   return (
@@ -19,7 +29,7 @@ function App() {
 
       <SearchBar />
 
-      <SearchResults tracks={tracks}/>
+      <SearchResults tracks={searchResults}/>
 
       <Playlist />
     </div>

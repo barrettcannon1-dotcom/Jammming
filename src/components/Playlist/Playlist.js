@@ -2,13 +2,13 @@ import './Playlist.css';
 
 import Tracklist from '../Tracklist/Tracklist';
 
-function Playlist() {
+function Playlist(props) {
     return (
         <div>
             <h2>Playlist</h2>
             <input placeholder="Playlist Name" />
 
-            <Tracklist tracks={[]} />
+            <Tracklist tracks={props.playlistTracks} />
 
             <button>SAVE TO SPOTIFY</button>
         </div>
